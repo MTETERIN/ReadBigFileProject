@@ -1,6 +1,7 @@
 import re
 import time
 
+
 def log_calltime(func):
     """Return a function call time
 
@@ -16,6 +17,7 @@ def log_calltime(func):
                 func.__name__, (time.time() - start)))
     return calc_time
 
+
 def read_in_chunks(file_object, chunk_size=1024):
     """Lazy function (generator) to read a file piece by piece.
     Default chunk size: 1k."""
@@ -24,6 +26,7 @@ def read_in_chunks(file_object, chunk_size=1024):
         if not data:
             break
         yield data
+
 
 def process_data(piece, ipv4):
     ip_pattern = re.compile('((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)')
@@ -54,7 +57,6 @@ def find_unique_ip(data_path):
     finally:
         file_handler.close()
     return ipv4;
-
 
 
 if __name__ == '__main__':
